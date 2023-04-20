@@ -78,27 +78,21 @@ onMounted(loadProduct.loadProducts);
       </div>
 
       <div class="table">
-        <div class="table-top">
-          <h3 class="table-top_name">Название товара</h3>
+        <div class="table__top">
+          <h3 class="table__top-name">Название товара</h3>
           <h3>Количество</h3>
           <h3>Стоимость</h3>
         </div>
-        <div class="table-bottom" v-for="item in newItemsProducts" :key="item">
-          <span class="table-top_name">
-            {{ item.name }}
-          </span>
-          <span>
-            {{ item.quantity }}
-          </span>
-          <span>
-            {{ item.price }}
-          </span>
+        <div class="table__bottom" v-for="item in newItemsProducts" :key="item">
+          <div class="table__bottom-name">{{ item.name }}</div>
+          <div class="table__bottom-quantity">{{ item.quantity }}</div>
+          <div class="table__bottom-price">{{ item.price }}</div>
         </div>
       </div>
     </div>
 
     <hr />
-    <h3>Итого: {{ totalPrice }} руб.</h3>
+    <h3 class="total">Итого: {{ totalPrice }} руб.</h3>
   </div>
 </template>
 
@@ -149,17 +143,37 @@ onMounted(loadProduct.loadProducts);
 .table {
   width: 100%;
 }
-.table-top,
-.table-bottom {
+.table__top,
+.table__bottom {
   display: flex;
   gap: 30px;
 }
 
-.table-top {
+.table__top {
   color: #2fa6ea;
 }
 
-.table-top_name {
+.table__top-name,
+.table__bottom-name {
   margin-right: auto;
+}
+
+.table__bottom > div {
+  margin-bottom: 10px;
+}
+
+.table__bottom-quantity,
+.table__bottom-price {
+  min-width: 110px;
+  text-align: right;
+}
+
+hr {
+  margin-top: 60px;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
