@@ -150,7 +150,7 @@ onMounted(loadProduct.loadProducts);
 }
 
 .table__top {
-  color: #2fa6ea;
+  color: #0170ae;
 }
 
 .table__top-name,
